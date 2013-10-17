@@ -3,7 +3,7 @@ MinePeon Addons
   
 Instructions to install MobileMinerApp add-on for MinePeon:
   
-cd /home/minepeon/ (or cd ~)
+cd /home/minepeon/
 
 git clone https://github.com/labmixz/MinePeonAddons.git addons
 
