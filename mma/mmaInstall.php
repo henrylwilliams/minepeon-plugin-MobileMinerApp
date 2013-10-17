@@ -1,4 +1,10 @@
 <?php
+/* Install Script
+ * @package MobileMinerApp Addon for MinePeon
+ * @author  Henry Williams / me@tk1337
+ * @version 1.0a
+ * @date    2013-10-16
+ */
 
 /* append cron jobs to minepeon crontab */
 $file   = fopen("/var/spool/cron/minepeon",'a') or die("Can not open cron file");

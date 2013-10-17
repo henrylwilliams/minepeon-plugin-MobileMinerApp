@@ -1,5 +1,6 @@
 <?php
-/* MobileMinerApp Addon for MinePeon
+/* Cron Script
+ * @package MobileMinerApp Addon for MinePeon
  * @author  Henry Williams / me@tk1337
  * @version 1.0a
  * @date    2013-10-16
