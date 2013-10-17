@@ -6,9 +6,8 @@ Instructions to install MobileMinerApp add-on for MinePeon:
 cd /home/minepeon/ (or cd ~)
 
 git clone https://github.com/labmixz/MinePeonAddons.git addons
+
 sudo php addons/mmaInstall.php [email] [appkey] [machine_name]
-
-
 
 Example:
 
