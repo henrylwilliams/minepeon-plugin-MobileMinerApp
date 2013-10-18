@@ -5,7 +5,7 @@
  * @version 1.0a
  * @date    2013-10-16
  */
-include '/home/minepeon/addons/mma/mobileminerapp.inc.php';
+include '/opt/minepeon/http/addons/mma/mobileminerapp.inc.php';
 $mma  = new mobileMinerApp();
 
 if(@$argv[1]){
