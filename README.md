@@ -36,4 +36,5 @@ To sign up for your appKey go to http://www.mobileminerapp.com
 
 ####Donations to support the creation of add-ons and/or custom add-ons
 If you care to support my work, you may make BTC donations to 1abmixLxtnE8zfxZcHFoP2vKusc3Y2E6e
+
 If you would to have a custom add-on for MinePeon, please feel free to email me@tk1337.com
