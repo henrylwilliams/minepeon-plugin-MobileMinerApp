@@ -7,10 +7,13 @@ ini_set("open_basedir",NULL);
  * @date    2013-10-16
  */
 
+/* create link */
+exec('cd /opt/minepeon/http | ln -s /home/minepeon/addons/ addons');
+
 /* append cron jobs to minepeon crontab */
 exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
-exec('echo "*/1 * * * * /usr/bin/php /home/minepeon/addons/mma/mobileminerapp.cron.php update" >> /var/spool/cron/minepeon');
-exec('echo "*/2 * * * * /usr/bin/php /home/minepeon/addons/mma/mobileminerapp.cron.php check" >> /var/spool/cron/minepeon');
+exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http/addons/mma/mobileminerapp.cron.php update" >> /var/spool/cron/minepeon');
+exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/addons/mma/mobileminerapp.cron.php check" >> /var/spool/cron/minepeon');
 //$file   = fopen("/var/spool/cron/minepeon",'a') or die("Can not open cron file");
 //$lines  ="\n#MobileMinerApp Crons
 // */1 * * * * /usr/bin/php /home/minepeon/addons/mma/mobileminerapp.cron.php update
