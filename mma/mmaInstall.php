@@ -7,9 +7,6 @@ ini_set("open_basedir",NULL);
  * @date    2013-10-16
  */
 
-/* create link */
-exec('cd /opt/minepeon/http | ln -s /home/minepeon/addons/ addons');
-
 /* append cron jobs to minepeon crontab */
 exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
 exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http/addons/mma/mobileminerapp.cron.php update" >> /var/spool/cron/minepeon');
