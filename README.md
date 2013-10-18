@@ -6,7 +6,7 @@ What is MinePeon?
 ==============
 MinePeon is a linux distribution based off of Arch Linux for the RaspberryPi (http://raspberrypi.org); MinePeon was created by TheMineForeman. For more information relating to the MinePeon project including downloads & user forums, please go here http://minepeon.com/.
 
-If you enjoy using MinePeon, I suggest you give a small donation for TheMineForman to support his efforts with the project, information about donations to the project can be found here http://minepeon.com/index.php/Donate/.
+If you enjoy using MinePeon, I suggest you give a small donation to TheMineForman for supporting his efforts with the project, information about donations to the project can be found here http://minepeon.com/index.php/Donate/.
 
 
 Available Add-ons
