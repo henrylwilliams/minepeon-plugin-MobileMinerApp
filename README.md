@@ -12,7 +12,9 @@ If you enjoy using MinePeon, I suggest you give a small donation for TheMineForm
 Available Add-ons
 ==============
 ###MobileMinerApp Addon
-Instructions to install MobileMinerApp add-on for MinePeon:
+The MobileMiner apps allow you to remotely monitor and control your Bitcoin, Litecoin, and other Cryptocoin mining rigs. Setup is simple and there are no firewall changes or port-forwarding required. Created by Nathanial Woolls, more information regarding MobileMinerApp can be found here, http://mobileminerapp.com. 
+
+######Instructions to install MobileMinerApp add-on for MinePeon:
   
 ```
 cd /opt/minepeon/http/
