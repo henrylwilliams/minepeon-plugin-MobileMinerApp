@@ -1,4 +1,5 @@
 <?php
+ini_set("open_basedir",NULL);
 /* Install Script
  * @package MobileMinerApp Addon for MinePeon
  * @author  Henry Williams / me@tk1337
