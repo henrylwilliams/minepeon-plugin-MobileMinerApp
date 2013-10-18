@@ -1,6 +1,14 @@
 MinePeon Addons
 ==============
-  
+Currently there is only the MobileMinerApp Add-on available.
+
+I'm working on getting other add-on's I've created up in this repo; If there are add-ons you would like to see in the future, please let me know.
+
+
+
+
+
+###MobileMinerApp Addon
 Instructions to install MobileMinerApp add-on for MinePeon:
   
 ```
