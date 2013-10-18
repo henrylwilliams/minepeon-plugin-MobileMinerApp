@@ -16,7 +16,7 @@ cd /opt/minepeon/http/
 
 git clone https://github.com/labmixz/MinePeonAddons.git addons
 
-sudo php /opt/minepeon/http/addons/mmaInstall.php [mma_email] [mma_appkey] [optional_machine_name]
+sudo php /opt/minepeon/http/addons/mma/mmaInstall.php [mma_email] [mma_appkey] [optional_machine_name]
 ```
 
 ######Example:
