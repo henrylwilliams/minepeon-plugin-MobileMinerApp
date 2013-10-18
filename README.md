@@ -1,6 +1,6 @@
 MinePeon Addons
 ==============
-I'm working on getting other add-on's I've created moved to this repo with an installation script for each add-on; If there are add-ons you would like to see in the future, please let me know.
+I'm working on getting other add-on's I've created moved into this repo with an installation script for each add-on; If there are add-ons you would like to see in the future, please let me know.
 
 What is MinePeon?
 ==============
@@ -32,3 +32,8 @@ sudo php /opt/minepeon/http/addons/mma/mmaInstall.php [mma_email] [mma_appkey] [
 To sign up for your appKey go to http://www.mobileminerapp.com
 
 =============
+
+
+####Donations to support the creation of add-ons and/or custom add-ons
+If you care to support my work, you may make BTC donations to 1abmixLxtnE8zfxZcHFoP2vKusc3Y2E6e
+If you would to have a custom add-on for MinePeon, please feel free to email me@tk1337.com
