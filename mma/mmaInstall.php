@@ -37,4 +37,6 @@ if(is_array($conf)){
   fclose($write);
 }
 
+echo "\n\nIf no errors displayed, everything installed successfully!\n\n";
+
 ?>
