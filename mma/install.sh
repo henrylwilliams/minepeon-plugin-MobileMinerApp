@@ -39,11 +39,12 @@ then
   
   mkdir -p /opt/minepeon/http/mma
   cp mobileminerapp.inc.php /opt/minepeon/http/mma/mobileminerapp.inc.php
-  cp mobileminerapp.php /opt/minepeon/http/mma/mobileminerapp.php
   cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
   cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
   
   rm -f mobileminerapp.inc.php
+  rm -f MMAUpdate
+  rm -f MMACmdCheck
 
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
