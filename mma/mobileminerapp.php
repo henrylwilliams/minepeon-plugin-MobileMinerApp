@@ -2,8 +2,8 @@
 /* Cron Script
  * @package MobileMinerApp Addon for MinePeon
  * @author  Henry Williams / me@tk1337
- * @version 1.0a
- * @date    2013-10-16
+ * @version 1.5a
+ * @date    2013-10-24
  */
 include '/opt/minepeon/http/mma/mobileminerapp.inc.php';
 $mma  = new mobileMinerApp();
