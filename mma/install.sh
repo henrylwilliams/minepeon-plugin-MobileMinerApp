@@ -29,17 +29,20 @@ then
 
   echo "Enter the email address registered with MobileMinerApp, then press [ENTER]:"
   read email
-  echo "Enter the Application Key received from MobileMinerApp, then press [ENTER]:"
+  echo "\nEnter the Application Key received from MobileMinerApp, then press [ENTER]:"
   read appkey
-  echo "[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
+  echo "\n[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
   read machinename
   
   mkdir -p /opt/minepeon/http/mma
-  cp -rf mma /opt/minepeon/http/mma
+  cp mobileminerapp.inc.php /opt/minepeon/http/mma/mobileminerapp.inc.php
+  cp mobileminerapp.php /opt/minepeon/http/mma/mobileminerapp.php
+  rm -f mobileminerapp.inc.php
+  rm -f mobileminerapp.php
 
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
 
-  echo "If no errors appeared, installation was successful!"
+  echo "\n\nIf no errors appeared, installation was successful!"
   echo ""
 fi
