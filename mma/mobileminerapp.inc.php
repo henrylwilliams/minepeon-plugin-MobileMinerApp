@@ -248,6 +248,100 @@ class mobileMinerApp{
     return true;
   }
   
+  /*
+   * Install CronJobs to support MMA Addon
+   */
+  public function installCron(){
+    $file   = "/var/spool/cron/minepeon";
+    $data   = file($file);
+    
+    /* Check to see if there are any cron callse to MMA addon from previous install */
+    foreach($data as $line => $str){
+      if(strpos($string,"mobileminerapp.php") === false){
+        $cron[] = $str;
+      }else{
+        $useNew = true;
+      }
+    }
+    
+    if($useNew === true){
+      exec('cat /dev/null > /var/spool/cron/minepeon');
+      foreach($cron as $str){
+        exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
+      }
+      exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
+      exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http.mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
+      exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check" >> /var/spool/cron/minepeon');
+    }else{
+      $open   = fopen($file);
+      $data   = fread($open,filesize($file));
+      
+      $append = fopen($file,'a') or die("\nERROR: Could not open crontab file.\n\n");
+      $lines  ="\n#MobileMinerApp Crons
+*/1 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php update
+*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check";
+      fwrite($append,$lines);
+      fclose($append);
+    }
+  }
+  
+  
+  /*
+   * Install variable into minepeon configuration file for MMA addon to work properly.
+   */
+  public function installConf(){
+    $file   = "/opt/minepeon/etc/minepeon.conf";
+    $open   = fopen($file,'r') or die("Can not open minepeon.conf");
+    $data   = fread($open,filesize($file));
+    $conf   = json_decode($data,true);
+    if(is_array($conf)){
+      $conf['mma_enabled']      = true;
+      $conf['mma_userEmail']    = $argv[1];
+      $conf['mma_appKey']       = $argv[2];
+      if(@$argv[2]){
+        $conf['mma_machineName']  = $argv[3];
+      }
+      
+      $write = fopen($file,'w');
+      fwrite($write,json_encode($conf,JSON_PRETTY_PRINT));
+      fclose($write);
+    }
+  }
+  
+  /*
+   * Remove MMA plugin
+   */
+  public function uninstall(){
+    /* remove cron jobs */
+    $file   = "/var/spool/cron/minepeon";
+    $data   = file($file);
+    
+    foreach($data as $line => $str){
+      if(strpos($string,"mobileminerapp.php") === false){
+        $cron[] = $str;
+      }
+    }
+    exec('cat /dev/null > /var/spool/cron/minepeon');
+    foreach($cron as $str){
+      exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
+    }
+    
+    /* disable in minepeon.conf */
+    $file   = "/opt/minepeon/etc/minepeon.conf";
+    $open   = fopen($file,'r') or die("Can not open minepeon.conf");
+    $data   = fread($open,filesize($file));
+    $conf   = json_decode($data,true);
+    if(is_array($conf)){
+      $conf['mma_enabled']      = false;
+      $conf['mma_userEmail']    = "";
+      $conf['mma_appKey']       = "";
+      
+      $write = fopen($file,'w');
+      fwrite($write,json_encode($conf,JSON_PRETTY_PRINT));
+      fclose($write);
+    }
+  }
+  
   
   /*
    * Simple little cURL function with some JSON decoding/encoding
@@ -306,7 +400,7 @@ class mobileMinerApp{
    *
    * @return  int   This should always return the tempature as an integer rounded to the nearest hundredth or zero.
    */
-  private function __getTempature(){
+  private function __getPiTempature(){
     $tmp  = trim(substr(substr(exec('/opt/vc/bin/vcgencmd measure_temp'),5),0,-2));
     if(is_numeric($tmp)){
       $tmp = round($tmp*9/5+32,2); //MobileMinerApp only supports degrees in fahrenheit.
