@@ -23,15 +23,18 @@ echo "installing this plugin, please allow it some time."
 echo
 
 read -p "Continue installation of MobileMinerApp plugin? [y/n]" -n 1 -r
-echo ""
+echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
+  echo
   echo "Enter the email address registered with MobileMinerApp, then press [ENTER]:"
   read email
-  echo "\nEnter the Application Key received from MobileMinerApp, then press [ENTER]:"
+  echo
+  echo "Enter the Application Key received from MobileMinerApp, then press [ENTER]:"
   read appkey
-  echo "\n[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
+  echo
+  echo "[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
   read machinename
   
   mkdir -p /opt/minepeon/http/mma
@@ -42,7 +45,8 @@ then
 
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
-
+  echo
+  echo
   echo "\n\nIf no errors appeared, installation was successful!"
-  echo ""
+  echo 
 fi
