@@ -27,12 +27,19 @@ echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
+  echo "Enter the email address registered with MobileMinerApp, then press [ENTER]:"
+  read email
+  echo "Enter the Application Key received from MobileMinerApp, then press [ENTER]:"
+  read appkey
+  echo "[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
+  read machinename
+  
   mkdir -p /opt/minepeon/http/mma
   cp -rf mma /opt/minepeon/http/mma
 
+  sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
+  sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
 
-sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
-sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf
-
-echo "If no errors appeared, installation was successful!"
-echo ""
+  echo "If no errors appeared, installation was successful!"
+  echo ""
+fi
