@@ -39,6 +39,7 @@ then
   
   mkdir -p /opt/minepeon/http/mma
   cp mobileminerapp.inc.php /opt/minepeon/http/mma/mobileminerapp.inc.php
+  cp run.php /opt/minepeon/http/mma/run.php
   cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
   cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
   
@@ -46,8 +47,10 @@ then
   rm -f MMAUpdate
   rm -f MMACmdCheck
 
-  sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
-  sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
+  sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
+  sudo /usr/bin/php /opt/minepeon/http/mma/run.php installconf $email $appkey $machinename
+  rm -f /opt/minepeon/http/mma/run.php
+  
   echo
   echo
   echo "If no errors appeared, installation was successful!"
