@@ -1,0 +1,43 @@
+<?php
+/* Cron Script
+ * @package MobileMinerApp Addon for MinePeon
+ * @author  Henry Williams / me@tk1337
+ * @version 1.0a
+ * @date    2013-10-16
+ */
+include '/opt/minepeon/http/addons/mma/mobileminerapp.inc.php';
+$mma  = new mobileMinerApp();
+
+if(@$argv[1]){
+  switch($argv[1]){
+    case "update":
+      $mma->cronUpdate();
+      break;
+    
+    case "check":
+      $mma->cronCheck();
+      break;
+    
+    case "installcron":
+      try{
+        $mma->installCron();
+      }catch(Exception $e){
+        echo "\n\nError(s) occurred:\n\n".$e->getMessage()."\n\n";
+      }
+      break;
+    
+    case "installconf":
+      try{
+        $mma->installConf();
+      }catch(Exception $e){
+        echo "\n\nError(s) occurred:\n\n".$e->getMessage()."\n\n";
+      }
+      break;
+    
+    default:
+      exit("No valid arguments were passed. Must be either update or check.");
+  }
+}else{
+  exit("No valid arguments were passed. Must be either update or check.");
+}
+?>
