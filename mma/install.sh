@@ -47,6 +47,6 @@ then
   sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf $email $appkey $machinename
   echo
   echo
-  echo "\n\nIf no errors appeared, installation was successful!"
+  echo "If no errors appeared, installation was successful!"
   echo 
 fi

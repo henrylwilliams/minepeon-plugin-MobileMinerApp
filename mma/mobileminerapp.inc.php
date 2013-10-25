@@ -257,7 +257,7 @@ class mobileMinerApp{
     
     /* Check to see if there are any cron callse to MMA addon from previous install */
     foreach($data as $line => $str){
-      if(strpos($string,"mobileminerapp.php") === false){
+      if(strpos(strtolower($string),"mobileminerapp") === false){
         $cron[] = $str;
       }else{
         $useNew = true;
@@ -317,7 +317,7 @@ class mobileMinerApp{
     $data   = file($file);
     
     foreach($data as $line => $str){
-      if(strpos($string,"mobileminerapp.php") === false){
+      if(strpos(strtolower($string),"mobileminerapp") === false){
         $cron[] = $str;
       }
     }
