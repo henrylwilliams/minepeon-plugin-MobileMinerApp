@@ -25,7 +25,6 @@ cd minepeon-plugin-MobileMinerApp/
 ./install.sh
 ```
 From there follow the on-screen instructions.
-=============
 
 
 ####Donations to support the creation of plug-ins and/or custom plug-ins
