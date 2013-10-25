@@ -34,6 +34,8 @@ if(@$argv[1]){
       }
       break;
     
+    case "uninstall":
+      $mma->uninstall();
     default:
       exit("No valid arguments were passed. Must be either update or check.");
   }
