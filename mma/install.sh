@@ -22,7 +22,7 @@ echo "installing this plugin, please allow it some time."
 echo
 
 read -p "Continue installation of MobileMinerApp plugin? [y/n]" -n 1 -r
-echo    # (optional) move to a new line
+echo ""
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 
@@ -34,3 +34,4 @@ sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installcron
 sudo /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.inc.php installconf
 
 echo "If no errors appeared, installation was successful!"
+echo ""
