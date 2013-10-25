@@ -1,6 +1,5 @@
 MobileMinerApp Plugin for MinePeon
 ==============
-###MobileMinerApp Addon
 The MobileMiner apps allow you to remotely monitor and control your Bitcoin, Litecoin, and other Cryptocoin mining rigs. Setup is simple and there are no firewall changes or port-forwarding required. Created by Nathanial Woolls, more information regarding MobileMinerApp can be found here, http://mobileminerapp.com. 
 
 
@@ -33,7 +32,7 @@ To sign up for your appKey go to http://www.mobileminerapp.com
 =============
 
 
-####Donations to support the creation of add-ons and/or custom add-ons
+####Donations to support the creation of plug-ins and/or custom plug-ins
 If you care to support my work, you may make BTC donations to 1abmixLxtnE8zfxZcHFoP2vKusc3Y2E6e
 
 If you would to have a custom add-on created for MinePeon, please feel free to email me@tk1337.com
