@@ -28,7 +28,7 @@ if(@$argv[1]){
     
     case "installconf":
       try{
-        $mma->installConf();
+        $mma->installConf($argv);
       }catch(Exception $e){
         echo "\n\nError(s) occurred:\n\n".$e->getMessage()."\n\n";
       }
