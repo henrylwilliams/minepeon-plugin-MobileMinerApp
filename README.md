@@ -1,6 +1,8 @@
-MinePeon Addons
+MobileMinerApp Plugin for MinePeon
 ==============
-I'm working on getting other add-on's I've created moved into this repo with an installation script for each add-on; If there are add-ons you would like to see in the future, please let me know.
+###MobileMinerApp Addon
+The MobileMiner apps allow you to remotely monitor and control your Bitcoin, Litecoin, and other Cryptocoin mining rigs. Setup is simple and there are no firewall changes or port-forwarding required. Created by Nathanial Woolls, more information regarding MobileMinerApp can be found here, http://mobileminerapp.com. 
+
 
 What is MinePeon?
 ==============
@@ -9,11 +11,8 @@ MinePeon is a linux distribution based off of Arch Linux for the RaspberryPi (ht
 If you enjoy using MinePeon, I suggest you give a small donation to TheMineForman for supporting his efforts with the project, information about donations to the project can be found here http://minepeon.com/index.php/Donate/.
 
 
-Available Add-ons
+Installation Instructions
 ==============
-###MobileMinerApp Addon
-The MobileMiner apps allow you to remotely monitor and control your Bitcoin, Litecoin, and other Cryptocoin mining rigs. Setup is simple and there are no firewall changes or port-forwarding required. Created by Nathanial Woolls, more information regarding MobileMinerApp can be found here, http://mobileminerapp.com. 
-
 ######Instructions to install MobileMinerApp add-on for MinePeon:
   
 ```
