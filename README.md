@@ -13,7 +13,7 @@ If you enjoy using MinePeon, I suggest you give a small donation to TheMineForma
 
 Installation Instructions
 ==============
-######Instructions to install MobileMinerApp add-on for MinePeon:
+######For MinePeon 2.4.0+
 
 SSH into the machine or use your favorite monitor & screen, once at the command prompt:
 ```
@@ -24,6 +24,9 @@ cd minepeon-plugin-MobileMinerApp/
 ./install.sh
 ```
 From there follow the on-screen instructions.
+
+######For MinePeon 2.3.0a or below
+(I'm still working on the install script, so please check back later.)
 
 
 =============
