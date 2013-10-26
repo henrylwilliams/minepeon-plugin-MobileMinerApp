@@ -8,70 +8,72 @@
 
 class mobileMinerApp{
 
-  function __construct($argv=false){
-    /* API Info for MobileMinerApp - ** DO NOT CHANGE ** */
-    $this->minerName  = "MinePeon";
-    $this->apiKey     = "NujIq2mbLN4L8P";
-    $this->rootURL    = "https://api.mobileminerapp.com";
-    
-    /* Load options from minepeon.conf */
-    $config           = json_decode(file_get_contents('/opt/minepeon/etc/minepeon.conf',false));
-    date_default_timezone_set($config->userTimezone);
-    
-    /* check to see if MobileMinerApp module is enabled */
-    if(@$config->mma_enabled === true){
-      $this->moduleEnabled = true;
-      /* check for email and appKey - exit if not found */
-      if(@$config->mma_userEmail && @$config->mma_appKey){
-        $this->userEmail  = $config->mma_userEmail;
-        $this->appKey     = $config->mma_appKey;
-        
-        /* look for coinName setting, set default if not found */
-        if(@$config->mma_coinName){
-          $this->coinName = $config->mma_coinName;
+  function __construct($install=false){
+    if(!$install){
+      /* API Info for MobileMinerApp - ** DO NOT CHANGE ** */
+      $this->minerName  = "MinePeon";
+      $this->apiKey     = "NujIq2mbLN4L8P";
+      $this->rootURL    = "https://api.mobileminerapp.com";
+      
+      /* Load options from minepeon.conf */
+      $config           = json_decode(file_get_contents('/opt/minepeon/etc/minepeon.conf',false));
+      date_default_timezone_set($config->userTimezone);
+      
+      /* check to see if MobileMinerApp module is enabled */
+      if(@$config->mma_enabled === true){
+        $this->moduleEnabled = true;
+        /* check for email and appKey - exit if not found */
+        if(@$config->mma_userEmail && @$config->mma_appKey){
+          $this->userEmail  = $config->mma_userEmail;
+          $this->appKey     = $config->mma_appKey;
+          
+          /* look for coinName setting, set default if not found */
+          if(@$config->mma_coinName){
+            $this->coinName = $config->mma_coinName;
+          }else{
+            $this->coinName = "Bitcoin"; 
+          }
+          
+          /* look for coinSymbol setting, set default if not found */
+          if(@$config->mma_coinSymbol){
+            $this->coinSymbol = $config->mma_coinSymbol;
+          }else{
+            $this->coinSymbol = "BTC";
+          }
+          
+          /* look for algorithm setting, set default if not found */
+          if(@$config->mma_algorithm){
+            $this->alogrithm  = $config->mma_algorithm;
+          }else{
+            $this->alogrithm  = "SHA-256";
+          }
+          
+          /* look for machineName setting, set default if not found */
+          if(@$config->mma_machineName){
+            $this->machineName= $config->mma_machineName;
+          }else{
+            $this->machineNAme = "MinePeon";
+          }
+          
+          /* look for log setting, set default if not found */
+          if(@$config->mma_cronLog){
+            $this->cronLog    = $config->mma_cronLog;
+          }else{
+            $this->cronLog    = false;
+          }
+          
+          /* look for interval setting, set default if not found */
+          if(@$config->mma_checkInterval){
+            $this->interval   = $config->mma_checkInterval;
+          }else{
+            $this->interval   = 60;
+          }
         }else{
-          $this->coinName = "Bitcoin"; 
-        }
-        
-        /* look for coinSymbol setting, set default if not found */
-        if(@$config->mma_coinSymbol){
-          $this->coinSymbol = $config->mma_coinSymbol;
-        }else{
-          $this->coinSymbol = "BTC";
-        }
-        
-        /* look for algorithm setting, set default if not found */
-        if(@$config->mma_algorithm){
-          $this->alogrithm  = $config->mma_algorithm;
-        }else{
-          $this->alogrithm  = "SHA-256";
-        }
-        
-        /* look for machineName setting, set default if not found */
-        if(@$config->mma_machineName){
-          $this->machineName= $config->mma_machineName;
-        }else{
-          $this->machineNAme = "MinePeon";
-        }
-        
-        /* look for log setting, set default if not found */
-        if(@$config->mma_cronLog){
-          $this->cronLog    = $config->mma_cronLog;
-        }else{
-          $this->cronLog    = false;
-        }
-        
-        /* look for interval setting, set default if not found */
-        if(@$config->mma_checkInterval){
-          $this->interval   = $config->mma_checkInterval;
-        }else{
-          $this->interval   = 60;
+          exit;
         }
       }else{
         exit;
       }
-    }else{
-      exit;
     }
   }
   
@@ -257,7 +259,7 @@ class mobileMinerApp{
     
     /* Check to see if there are any cron callse to MMA addon from previous install */
     foreach($data as $line => $str){
-      if(strpos(strtolower($string),"mobileminerapp") === false){
+      if(strpos(strtolower($str),"mobileminerapp") === false){
         $cron[] = $str;
       }else{
         $useNew = true;
@@ -296,10 +298,10 @@ class mobileMinerApp{
     $conf   = json_decode($data,true);
     if(is_array($conf)){
       $conf['mma_enabled']      = true;
-      $conf['mma_userEmail']    = $argv[4];
-      $conf['mma_appKey']       = $argv[5];
-      if(@$argv[5]){
-        $conf['mma_machineName']  = $argv[6];
+      $conf['mma_userEmail']    = $argv[2];
+      $conf['mma_appKey']       = $argv[3];
+      if(@$argv[4]){
+        $conf['mma_machineName']  = $argv[4];
       }
       
       $write = fopen($file,'w');
