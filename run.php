@@ -6,7 +6,7 @@
  * @date    2013-10-24
  */
 include '/opt/minepeon/http/mma/mobileminerapp.inc.php';
-$mma  = new mobileMinerApp();
+$mma  = new mobileMinerApp(true);
 
 if(@$argv[1]){
   switch($argv[1]){
