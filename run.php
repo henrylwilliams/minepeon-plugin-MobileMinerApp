@@ -2,7 +2,7 @@
 /* Cron Script
  * @package MobileMinerApp Addon for MinePeon
  * @author  Henry Williams / me@tk1337
- * @version 1.5a
+ * @version 1.6a
  * @date    2013-10-24
  */
 include '/opt/minepeon/http/mma/mobileminerapp.inc.php';
@@ -11,19 +11,11 @@ $mma  = new mobileMinerApp();
 if(@$argv[1]){
   switch($argv[1]){
     case "installcron":
-      try{
-        $mma->installCron();
-      }catch(Exception $e){
-        echo "\n\nError(s) occurred:\n\n".$e->getMessage()."\n\n";
-      }
+      $mma->installCron();
       break;
     
     case "installconf":
-      try{
-        $mma->installConf($argv);
-      }catch(Exception $e){
-        echo "\n\nError(s) occurred:\n\n".$e->getMessage()."\n\n";
-      }
+      $mma->installConf($argv);
       break;
     
     case "uninstall":
