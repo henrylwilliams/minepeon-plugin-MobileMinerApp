@@ -34,7 +34,7 @@ then
   echo "Enter the Application Key received from MobileMinerApp, then press [ENTER]:"
   read appkey
   echo
-  echo "[OPTIONAL] Enter what you would like to name this machine, then press [ENTER]:"
+  echo "[OPTIONAL] Enter what you would like to name this machine (no spaces!), then press [ENTER]:"
   read machinename
   
   mkdir -p /opt/minepeon/http/mma
