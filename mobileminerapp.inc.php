@@ -256,6 +256,7 @@ class mobileMinerApp{
   public function installCron(){
     $file   = "/var/spool/cron/minepeon";
     $data   = file($file);
+    $userNew= false;
     
     /* Check to see if there are any cron callse to MMA addon from previous install */
     foreach($data as $line => $str){
