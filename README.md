@@ -17,8 +17,6 @@ Installation Instructions
 
 SSH into the machine or use your favorite monitor & screen, once at the command prompt:
 ```
-cd ~
-
 git clone https://github.com/labmixz/minepeon-plugin-MobileMinerApp.git
 
 cd minepeon-plugin-MobileMinerApp/
