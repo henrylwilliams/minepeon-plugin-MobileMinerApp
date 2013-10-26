@@ -15,7 +15,9 @@ if(@$argv[1]){
       break;
     
     case "installconf":
-      $mma->installConf($argv);
+      $settings = array("email"=>$argv[2],"key"=>$argv[3]);
+      if(@$argv[4]){$settings["name"]=$argv[4];}
+      $mma->installConf($settings);
       break;
     
     case "uninstall":

@@ -291,17 +291,17 @@ class mobileMinerApp{
   /*
    * Install variable into minepeon configuration file for MMA addon to work properly.
    */
-  public function installConf($argv){
+  public function installConf($settings){
     $file   = "/opt/minepeon/etc/minepeon.conf";
     $open   = fopen($file,'r') or die("Can not open minepeon.conf");
     $data   = fread($open,filesize($file));
     $conf   = json_decode($data,true);
     if(is_array($conf)){
       $conf['mma_enabled']      = true;
-      $conf['mma_userEmail']    = $argv[2];
-      $conf['mma_appKey']       = $argv[3];
-      if(@$argv[4]){
-        $conf['mma_machineName']  = $argv[4];
+      $conf['mma_userEmail']    = $settings['email'];
+      $conf['mma_appKey']       = $settings['key'];
+      if($settings['name']){
+        $conf['mma_machineName']  = $settings['name'];
       }
       
       $write = fopen($file,'w');
