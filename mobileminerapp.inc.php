@@ -267,7 +267,7 @@ class mobileMinerApp{
       }
     }
     
-    if($useNew === true){
+    if(@$useNew === true){
       exec('cat /dev/null > /var/spool/cron/minepeon');
       foreach($cron as $str){
         exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
@@ -276,6 +276,9 @@ class mobileMinerApp{
       exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http.mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
       exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check" >> /var/spool/cron/minepeon');
     }else{
+      if(!$file){
+        $file = "/var/spool/cron/minepeon";
+      }
       $open   = fopen($file);
       $data   = fread($open,filesize($file));
       
