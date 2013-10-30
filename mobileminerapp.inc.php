@@ -278,10 +278,7 @@ class mobileMinerApp{
     }else{
       if(!$file){
         $file = "/var/spool/cron/minepeon";
-      }
-      $open   = fopen($file);
-      $data   = fread($open,filesize($file));
-      
+      }      
       $append = fopen($file,'a') or die("\nERROR: Could not open crontab file.\n\n");
       $lines  ="\n#MobileMinerApp Crons
 */1 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php update
