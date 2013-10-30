@@ -47,7 +47,6 @@ then
   rm -f MMAUpdate
   rm -f MMACmdCheck
 
-  sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
   sudo /usr/bin/php /opt/minepeon/http/mma/run.php installconf $email $appkey $machinename
   rm -f /opt/minepeon/http/mma/run.php
   
