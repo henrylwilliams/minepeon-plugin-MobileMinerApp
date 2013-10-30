@@ -254,38 +254,38 @@ class mobileMinerApp{
    * Install CronJobs to support MMA Addon
    */
   public function installCron(){
-    $file   = "/var/spool/cron/minepeon";
-    $data   = file($file);
-    $userNew= false;
+    //$file   = "/var/spool/cron/minepeon";
+    //$data   = file($file);
+    //$userNew= false;
+    //
+    ///* Check to see if there are any cron callse to MMA addon from previous install */
+    //foreach($data as $line => $str){
+    //  if(strpos(strtolower($str),"mobileminerapp") === false){
+    //    $cron[] = $str;
+    //  }else{
+    //    $useNew = true;
+    //  }
+    //}
     
-    /* Check to see if there are any cron callse to MMA addon from previous install */
-    foreach($data as $line => $str){
-      if(strpos(strtolower($str),"mobileminerapp") === false){
-        $cron[] = $str;
-      }else{
-        $useNew = true;
-      }
-    }
-    
-    if(@$useNew === true){
-      exec('cat /dev/null > /var/spool/cron/minepeon');
-      foreach($cron as $str){
-        exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
-      }
-      exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
-      exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http.mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
-      exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check" >> /var/spool/cron/minepeon');
-    }else{
-      if(!$file){
-        $file = "/var/spool/cron/minepeon";
-      }      
-      $append = fopen($file,'a') or die("\nERROR: Could not open crontab file.\n\n");
-      $lines  ="\n#MobileMinerApp Crons
-*/1 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php update
-*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check";
-      fwrite($append,$lines);
-      fclose($append);
-    }
+    //    if(@$useNew === true){
+    //      exec('cat /dev/null > /var/spool/cron/minepeon');
+    //      foreach($cron as $str){
+    //        exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
+    //      }
+    //      exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
+    //      exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http.mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
+    //      exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check" >> /var/spool/cron/minepeon');
+    //    }else{
+    //      if(!$file){
+    //        $file = "/var/spool/cron/minepeon";
+    //      }      
+    //      $append = fopen($file,'a') or die("\nERROR: Could not open crontab file.\n\n");
+    //      $lines  ="\n#MobileMinerApp Crons
+    //*/1 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php update
+    //*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check";
+    //      fwrite($append,$lines);
+    //      fclose($append);
+    //}
   }
   
   
