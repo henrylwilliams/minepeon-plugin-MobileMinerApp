@@ -166,15 +166,14 @@ class mobileMinerApp{
       if(in_array(strtoupper($command_data['CommandText']),array('STOP','START','RESTART'))){
         switch($command_data['CommandText']){
           case "STOP":
-            exec('sudo systemctl disable cgminer');
+            exec('/usr/bin/sudo /usr/bin/systemctl stop miner > /dev/null 2>&1 &');
             break;
           case "START":
-            exec('sudo systemctl enable cgminer');
+            exec('/usr/bin/sudo /usr/bin/systemctl start miner > /dev/null 2>&1 &');
             break;
           case "RESTART":
-            exec('sudo systemctl restart cgminer');
-            //include_once '/opt/minepeon/http/inc/cgminer.inc.php';
-            //cgminer('restart',true);
+            include_once('miner.inc.php');
+            cgminer('restart','');
             break;
         }
       }
