@@ -34,8 +34,6 @@ then
   then
     sudo cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
     sudo cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
-  else
-    sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
   fi
   
   rm -f mobileminerapp.inc.php
