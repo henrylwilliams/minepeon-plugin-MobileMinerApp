@@ -40,8 +40,15 @@ then
   mkdir -p /opt/minepeon/http/mma
   cp mobileminerapp.inc.php /opt/minepeon/http/mma/mobileminerapp.inc.php
   cp run.php /opt/minepeon/http/mma/run.php
-  cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
-  cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
+  
+  verCheck = $(</opt/minepeon/etc/version)
+  if [ "$verCheck" -ge "0.2.4" ]
+  then
+    sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
+  else
+    cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
+    cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
+  fi
   
   rm -f mobileminerapp.inc.php
   rm -f MMAUpdate
