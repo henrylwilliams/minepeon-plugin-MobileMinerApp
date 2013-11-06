@@ -166,10 +166,10 @@ class mobileMinerApp{
       if(in_array(strtoupper($command_data['CommandText']),array('STOP','START','RESTART'))){
         switch($command_data['CommandText']){
           case "STOP":
-            exec('/usr/bin/sudo /usr/bin/systemctl stop miner > /dev/null 2>&1 &');
+            exec('sudo systemctl stop miner');
             break;
           case "START":
-            exec('/usr/bin/sudo /usr/bin/systemctl start miner > /dev/null 2>&1 &');
+            exec('sudo systemctl start miner');
             break;
           case "RESTART":
             include_once('miner.inc.php');
@@ -223,24 +223,8 @@ class mobileMinerApp{
    */
   public function cronCheck(){
     if($this->moduleEnabled === true){
-      if(!$this->interval){
-        $this->interval = 20; // default 20sec
-      }
-      if($this->interval < 20){ //requests going too fast will hit throttle control.
-        $this->interval  = 20;
-      }elseif($this->interval > 60){ //requests going too slow will allow MobileMinerApp to think the machine is down.
-        $this->interval = 60;
-      }
-      
       if($this->checkRemoteCommand()){
-        if($this->cronLog){echo date('Y-m-d h:i:s')." - checked server for incoming commands.\r\n";}
-        if($this->interval*2 < 60){
-          sleep($this->interval);
-          if($this->checkRemoteCommand()){
-            if($this->cronLog){echo date('Y-m-d h:i:s')." - checked server for incoming commands.\r\n";}
-            return true;
-          }
-        }else{
+        if($this->checkRemoteCommand()){
           return true;
         }
       }
@@ -394,21 +378,6 @@ class mobileMinerApp{
     $result = curl_exec($ch);
     curl_close($ch);
     // Later I will put in some error checking, to make sure an http 200/201 was returned, if so return a boolean.
-  }
-
-  
-  /*
-   * Just grab the tempature from the machine, even though this isn't really used - May consider setting this temp for all devices in the future.
-   *
-   * @return  int   This should always return the tempature as an integer rounded to the nearest hundredth or zero.
-   */
-  private function __getPiTempature(){
-    $tmp  = trim(substr(substr(exec('/opt/vc/bin/vcgencmd measure_temp'),5),0,-2));
-    if(is_numeric($tmp)){
-      $tmp = round($tmp*9/5+32,2); //MobileMinerApp only supports degrees in fahrenheit.
-      return $tmp;
-    }
-    return 0; //Call to API will fail if false or null, must be INT.
   }
 }
 ?>
