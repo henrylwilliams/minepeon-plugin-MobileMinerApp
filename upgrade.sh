@@ -29,13 +29,13 @@ then
   sudo cp mobileminerapp.inc.php /opt/minepeon/http/mma/mobileminerapp.inc.php
   sudo cp run.php /opt/minepeon/http/mma/run.php
   
-  verCheck = 'cat /opt/minepeon/etc/version'
-  if [ "$verCheck" -ge "0.2.4" ]
+  v=$(sed 's/[^0-9]//g' /opt/minepeon/etc/version)
+  if [ "$v" -ge "024" ]
   then
-    sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
-  else
     sudo cp MMAUpdate /opt/minepeon/etc/cron.d/1min/MMAUpdate
     sudo cp MMACmdCheck /opt/minepeon/etc/cron.d/2min/MMACmdCheck
+  else
+    sudo /usr/bin/php /opt/minepeon/http/mma/run.php installcron
   fi
   
   rm -f mobileminerapp.inc.php
