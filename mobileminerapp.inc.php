@@ -256,7 +256,7 @@ class mobileMinerApp{
             exec('echo "'.$str.'" >> /var/spool/cron/minepeon');
           }
           exec('echo "# MobileMinerApp crons" >> /var/spool/cron/minepeon');
-          exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http.mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
+          exec('echo "*/1 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php update" >> /var/spool/cron/minepeon');
           exec('echo "*/2 * * * * /usr/bin/php /opt/minepeon/http/mma/mobileminerapp.php check" >> /var/spool/cron/minepeon');
         }else{
           if(!$file){
