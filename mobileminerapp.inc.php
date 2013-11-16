@@ -2,8 +2,8 @@
 /* Main Include
  * @package MobileMinerApp Addon for MinePeon
  * @author  Henry Williams / me@tk1337
- * @version 1.9a
- * @date    2013-10-24
+ * @version 2.0a
+ * @date    2013-11-16
  */
 
 class mobileMinerApp{
@@ -84,7 +84,16 @@ class mobileMinerApp{
   public function updateStatus(){
     if($this->moduleEnabled === true){
       include_once '/opt/minepeon/http/inc/miner.inc.php';
-      $mp = cgminer('devs',1);
+      
+      // The below checks were added to support both versions of MinePeon, the older has the function as cgminer, where as the newer has it as miner.
+      if(function_exists('cgminer')){
+        $mp = cgminer('devs',1);
+      }elseif(function_exists('miner')){
+        $mp = miner('devs',1);
+      }else{
+        throw Exception("Could not locate function needed inside miner.inc.php.");
+      }
+      
       if(is_array($mp)){
         foreach($mp['DEVS'] as $device){
           if(@$device['Temperature']){
@@ -173,7 +182,14 @@ class mobileMinerApp{
             break;
           case "RESTART":
             include_once('miner.inc.php');
-            cgminer('restart','');
+            // The below checks were added to support both versions of MinePeon, the older has the function as cgminer, where as the newer has it as miner.
+            if(function_exists('cgminer')){
+              cgminer('restart','');
+            }elseif(function_exists('miner')){
+              miner('restart','');
+            }else{
+              throw Exception("Could not locate function needed inside miner.inc.php.");
+            }
             break;
         }
       }
