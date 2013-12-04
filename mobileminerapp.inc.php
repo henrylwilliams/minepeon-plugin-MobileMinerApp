@@ -13,7 +13,7 @@ class mobileMinerApp{
       /* API Info for MobileMinerApp - ** DO NOT CHANGE ** */
       $this->minerName  = "MinePeon";
       $this->apiKey     = "NujIq2mbLN4L8P";
-      $this->rootURL    = "https://api.mobileminerapp.com";
+      $this->rootURL    = "https://mobileminer.azurewebsites.net/api";
       
       /* Load options from minepeon.conf */
       $config           = json_decode(file_get_contents('/opt/minepeon/etc/minepeon.conf',false));
