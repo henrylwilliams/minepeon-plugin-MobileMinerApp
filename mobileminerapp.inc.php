@@ -300,7 +300,7 @@ class mobileMinerApp{
       $conf['mma_enabled']      = true;
       $conf['mma_userEmail']    = $settings['email'];
       $conf['mma_appKey']       = $settings['key'];
-      if($settings['name']){
+      if(isset($settings['name'])){
         $conf['mma_machineName']  = $settings['name'];
       }
       
