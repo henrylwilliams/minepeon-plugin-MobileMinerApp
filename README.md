@@ -1,4 +1,4 @@
-__NOTICE: 01/27/2014 This plugin has not been updated for MinePeon 0.2.5, I will be updating this within the next few days.__
+NEW: Uses minepeon plugin system
 
 
 MobileMinerApp Plugin for MinePeon
