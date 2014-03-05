@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<plugin>
+<name>Mobile Miner App</name>
+<maker>tk1337</maker>
+<description>he MobileMiner app allow you to remotely monitor and control your Bitcoin, Litecoin, and other Cryptocoin mining rigs.</description>
+<settings>plugins/mma/settings.php</settings>
+</plugin>

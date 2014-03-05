@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<instal>
+<run_sh_file>False</run_sh_file>
+<redirect_after>mma/settings.php</redirect_after>
+</instal>
