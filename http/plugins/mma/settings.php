@@ -2,13 +2,11 @@
 
 include('../../inc/settings.inc.php');
 
-if (isset($_POST['email'])) {
+$writeSettings=false;
 
-  $settings['plugin-mma-Email'] = $_POST['Email'];
-  $settings['plugin-mma-AppKey'] = $_POST['AppKey'];
-  $settings['plugin-mma-MName'] = $_POST['MNname'];
-  $writeSettings=true;
-  exec("/usr/bin/php /opt/minepeon/http/mma/run.php installconf " + $_POST['Email'] + " " +  $_POST['AppKey'] + " " + $_POST['MNname']);
+if (isset($_POST['Email'])) {
+	exec("/usr/bin/php /opt/minepeon/http/plugins/mma/run.php installconf " . $_POST['Email'] . " " .  $_POST['AppKey'] . " " . $_POST['MName']);
+	header('Location: /plugins/mma/settings.php');
 }
 
 
@@ -16,15 +14,14 @@ include('../../head.php');
 include('../../menu.php');
 
 ?>
-
 <div class="container">
-<form name="mma" action="/settings.php" method="post" class="form-horizontal">
+<form name="mma" action="/plugins/mma/settings.php" method="post" class="form-horizontal">
     <fieldset>
       <legend>Mobile miner app settings</legend>
       <div class="form-group">
         <label class="control-label col-lg-3">Email Adress</label>
         <div class="col-lg-9">
-          <input type="email" placeholder="Email adress" name="Email" class="form-control">
+          <input type="email" placeholder="Email adress" name="Email" class="form-control" value="<?php echo $settings['mma_userEmail']; ?>">
           <p class="help-block">
             Enter the email address registered with MobileMinerApp
           </p>
@@ -34,7 +31,7 @@ include('../../menu.php');
         <label class="control-label col-lg-3">Application Key</label>
         <div class="col-lg-9">
           <div class="input-group">
-	<input type="text" placeholder="Application Key" name="AppKey" class="form-control">
+	<input type="text" placeholder="Application Key" name="AppKey" class="form-control" value="<?php echo $settings['mma_appKey']; ?>">
           </div>
           <p class="help-block">
           Enter the Application Key received from MobileMinerApp
@@ -44,7 +41,7 @@ include('../../menu.php');
       <div class="form-group">
         <label class="control-label col-lg-3">Machine Name</label>
         <div class="col-lg-9">
-<input type="text" placeholder="Machine Name" name="MName" class="form-control">
+<input type="text" placeholder="Machine Name" name="MName" class="form-control" value="<?php echo $settings['mma_machineName']; ?>">
           <p class="help-block">
             [OPTIONAL] Enter what you would like to name this machine (no spaces!)
           </p>
