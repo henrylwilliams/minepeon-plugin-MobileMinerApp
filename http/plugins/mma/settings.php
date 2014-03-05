@@ -8,7 +8,7 @@ if (isset($_POST['email'])) {
   $settings['plugin-mma-AppKey'] = $_POST['AppKey'];
   $settings['plugin-mma-MName'] = $_POST['MNname'];
   $writeSettings=true;
-
+  exec("/usr/bin/php /opt/minepeon/http/mma/run.php installconf " + $_POST['Email'] + " " +  $_POST['AppKey'] + " " + $_POST['MNname']);
 }
 
 
