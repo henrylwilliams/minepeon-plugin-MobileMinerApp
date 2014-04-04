@@ -2,6 +2,6 @@
 <?php
 
 
-include '/opt/minepeon/http/mma/mobileminerapp.inc.php';
+include '/opt/minepeon/http/plugins/mma/mobileminerapp.inc.php';
 $mma  = new mobileMinerApp();
 $mma->cronUpdate();
